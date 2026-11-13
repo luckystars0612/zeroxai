@@ -7,54 +7,74 @@
 <meta name="referrer" content="no-referrer">
 <title>ZeroX AI — AI &amp; Cybersecurity Research</title>
 <meta name="description" content="ZeroX AI is a research organization focused on artificial intelligence and cybersecurity.">
-<meta name="theme-color" content="#07090d">
+<meta name="theme-color" content="#06080c">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/main.js" defer></script>
 </head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas>
+<div class="glow g1" aria-hidden="true"></div>
+<div class="glow g2" aria-hidden="true"></div>
 
-<header class="nav">
-  <a class="brand" href="#top" aria-label="ZeroX AI home"><span class="logo">0x</span>ZeroX<span class="dim">AI</span></a>
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="ZeroX AI home"><span class="logo">0x</span><span>ZeroX<span class="dim"> AI</span></span></a>
   <nav aria-label="Primary">
     <a href="#research">Research</a>
     <a href="#approach">Approach</a>
     <a href="#principles">Principles</a>
-    <a href="#contact">Contact</a>
+    <a class="navcta" href="#contact">Contact</a>
   </nav>
 </header>
 
 <main id="top">
   <section class="hero">
-    <p class="eyebrow">// AI &amp; cybersecurity research</p>
-    <h1>Securing the age of <span class="accent" id="rotator" aria-live="off">intelligent systems</span></h1>
-    <p class="lead">ZeroX AI researches how artificial intelligence can strengthen security, and how AI systems themselves can be attacked, understood, and defended.</p>
-    <div class="cta">
-      <a class="btn primary" href="#research">Explore research</a>
-      <a class="btn" href="#contact">Get in touch</a>
+    <div class="hero-copy">
+      <p class="badge"><span class="pulse"></span>Independent AI &amp; cybersecurity research</p>
+      <h1>Securing the age of <span class="grad" id="rotator">intelligent systems</span></h1>
+      <p class="lead">ZeroX AI researches how artificial intelligence can strengthen security &mdash; and how AI systems themselves can be attacked, understood, and defended.</p>
+      <div class="cta">
+        <a class="btn primary" href="#research">Explore research
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#contact">Collaborate with us</a>
+      </div>
+      <ul class="tags" aria-label="Focus">
+        <li>LLM agents</li><li>Vulnerability research</li><li>Reverse engineering</li><li>Attack surface</li><li>AI safety</li>
+      </ul>
     </div>
-    <pre class="term" aria-hidden="true"><span class="p">$</span> zerox --mission
-<span class="o">&gt; find the flaw before the adversary does</span>
-<span class="o">&gt; verify every claim, independently</span><span class="cursor">_</span></pre>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="window">
+        <div class="bar"><i></i><i></i><i></i><span>zerox@lab: ~</span></div>
+        <pre id="term"></pre>
+      </div>
+    </div>
   </section>
 
   <section id="research" class="section">
-    <h2><span class="idx">01</span>Research areas</h2>
-    <div class="grid">
+    <header class="sec-head">
+      <p class="eyebrow">01 &middot; Research</p>
+      <h2>Where we focus</h2>
+      <p class="sub">Two sides of one problem: using AI to find weaknesses, and making AI systems resilient to them.</p>
+    </header>
+    <div class="grid four">
       <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>AI for security</h3>
         <p>Autonomous and LLM-assisted agents for vulnerability discovery, reverse engineering, attack surface management, and triage.</p>
       </article>
       <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M10 10h4v4h-4z"/></svg></div>
         <h3>Security of AI</h3>
         <p>Prompt injection, model and agent abuse, data and supply-chain risk, and robust guardrails for AI-driven systems.</p>
       </article>
       <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></div>
         <h3>Vulnerability research</h3>
         <p>Low-level analysis of binaries, drivers, and firmware, with an emphasis on coordinated disclosure.</p>
       </article>
       <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/></svg></div>
         <h3>Evaluation &amp; verification</h3>
         <p>Reproducible methods to measure what AI security tools actually find, and to reject what they only claim.</p>
       </article>
@@ -62,35 +82,51 @@
   </section>
 
   <section id="approach" class="section">
-    <h2><span class="idx">02</span>Approach</h2>
-    <ol class="steps">
-      <li><strong>Hypothesize</strong><span>Frame a precise, testable security question.</span></li>
-      <li><strong>Build</strong><span>Prototype tooling and agents with strict scope controls.</span></li>
-      <li><strong>Verify</strong><span>Replay every finding independently before it counts.</span></li>
-      <li><strong>Disclose</strong><span>Share results responsibly with the people who can fix them.</span></li>
+    <header class="sec-head">
+      <p class="eyebrow">02 &middot; Method</p>
+      <h2>How we work</h2>
+      <p class="sub">A disciplined loop from question to responsible disclosure.</p>
+    </header>
+    <ol class="timeline">
+      <li><span class="n">01</span><h3>Hypothesize</h3><p>Frame a precise, testable security question.</p></li>
+      <li><span class="n">02</span><h3>Build</h3><p>Prototype tooling and agents with strict scope controls.</p></li>
+      <li><span class="n">03</span><h3>Verify</h3><p>Replay every finding independently before it counts.</p></li>
+      <li><span class="n">04</span><h3>Disclose</h3><p>Share results responsibly with the people who can fix them.</p></li>
     </ol>
   </section>
 
   <section id="principles" class="section">
-    <h2><span class="idx">03</span>Principles</h2>
+    <header class="sec-head">
+      <p class="eyebrow">03 &middot; Principles</p>
+      <h2>What we hold to</h2>
+    </header>
     <div class="grid three">
-      <div class="card"><h3>Responsible</h3><p>Authorized targets only. Coordinated disclosure by default.</p></div>
-      <div class="card"><h3>Evidence-first</h3><p>No finding is trusted until it is reproduced.</p></div>
-      <div class="card"><h3>Minimal by design</h3><p>Small attack surface, in our tools and on this site.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 8l-2 6a3 3 0 006 0L5 8zM19 8l-2 6a3 3 0 006 0l-4-6z"/></svg></div><h3>Responsible</h3><p>Authorized targets only. Coordinated disclosure by default.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><h3>Evidence-first</h3><p>No finding is trusted until it is independently reproduced.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div><h3>Minimal by design</h3><p>Small attack surface &mdash; in our tools and on this very site.</p></div>
     </div>
   </section>
 
   <section id="contact" class="section">
-    <h2><span class="idx">04</span>Contact</h2>
-    <p class="lead">Interested in collaborating on research? Reach us via GitHub.</p>
-    <p><a class="btn primary" href="https://github.com/luckystars0612/zeroxai" rel="noopener noreferrer">github.com/luckystars0612/zeroxai</a></p>
+    <div class="banner">
+      <div>
+        <h2>Let&rsquo;s research together</h2>
+        <p class="sub">Interested in collaborating, sharing a finding, or discussing a project? Reach out via GitHub.</p>
+      </div>
+      <a class="btn primary" href="https://github.com/luckystars0612/zeroxai" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub</a>
+    </div>
   </section>
 </main>
 
 <footer class="foot">
-  <span>&copy; <span id="year">2026</span> ZeroX AI</span>
-  <span class="dim">zeroxai.dev &middot; static, no trackers, no cookies</span>
+  <div class="foot-in">
+    <a class="brand" href="#top"><span class="logo">0x</span><span>ZeroX<span class="dim"> AI</span></span></a>
+    <p class="dim">AI &amp; cybersecurity research.<br>Static site &middot; no trackers &middot; no cookies.</p>
+    <p class="dim">&copy; <span id="year">2026</span> ZeroX AI &middot; zeroxai.dev</p>
+  </div>
 </footer>
-<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}#term:empty::before{content:"$ zerox --mission"}</style></noscript>
 </body>
 </html>
